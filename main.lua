@@ -1,8 +1,16 @@
+-- main.lua
+
+local Events = require("events")
 local GameState = require("gamestate")
 local Input = require("input")
 
 local gameState = GameState:new()
 local input = Input:new()
+
+-- Subscribe to food eaten event (Bonus)
+Events:subscribe("food_eaten", function(data)
+    print("Score increased to:", data.score)
+end)
 
 -- Bind input keys for the snake game
 input:bind("up", function()

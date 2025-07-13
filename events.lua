@@ -7,11 +7,16 @@ function Events:subscribe(event, callback)
 end
 
 function Events:emit(event, data)
+    print("Emitting:", event) -- DEBUG
     if listeners[event] then
         for _, callback in ipairs(listeners[event]) do
+            print("Calling listener for:", event) -- DEBUG
             callback(data)
         end
+    else
+        print("No listeners found for:", event)
     end
 end
+
 
 return Events

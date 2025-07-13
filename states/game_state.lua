@@ -1,8 +1,3 @@
-local Events = require("events")
-
-Events:subscribe("food_eaten", function(data)
-    print("Score increased to:", data.score)
-end)
 
 local SnakeGame = require("snake_game")
 
